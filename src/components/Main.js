@@ -2,6 +2,11 @@ import React, { useRef, useState } from 'react'
 import { Canvas, useFrame } from 'react-three-fiber'
 const THREE = require('three')
 
+
+function randColor(){
+  return '#000000'.replace(/0/g,function(){return (~~(Math.random()*16)).toString(16)})
+}
+
 function Box1(props) {
   // This reference will give us direct access to the mesh
   const mesh1 = useRef()
@@ -22,7 +27,7 @@ function Box1(props) {
       onClick={e =>{
       // setHover(false)
 
-      props.passState()
+      props.passState(mesh1.current.color)
     }}
       onUpdate={self => self.material.color=new THREE.Color(props.color)}
       onPointerOver={e => setHover(true)}
@@ -52,7 +57,7 @@ function Box2(props) {
       onClick={e =>{
       // setHover(false)
 
-      props.passState()
+      props.passState(mesh2.current.color)
     }}
       onPointerOver={e => setHover(true)}
       onPointerOut={e => setHover(false)}>
@@ -80,8 +85,8 @@ function Box3(props) {
       scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
       onClick={e =>{
       // setHover(false)
-      
-      props.passState(5)
+
+      props.passState(mesh3.current.color)
     }}
       onPointerOut={e => setHover(false)}>
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
@@ -99,7 +104,7 @@ class Main extends React.Component{
       data: {},
       error: '',
       score: 0,
-      colors: ["#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);}),"#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);}), "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16)})]
+      colors: [randColor(),randColor(), randColor()]
 
     }
     this.componentDidMount = this.componentDidMount.bind(this)
@@ -127,7 +132,14 @@ class Main extends React.Component{
 
   passState(value){
     console.log(value)
-    this.setState({colors:  ["#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);}),"#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);}), "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);})] })
+    const hex = document.getElementById('hex')
+    console.log(hex.innerText)
+    if(hex.innerText === value){
+    this.setState({colors:  [randColor(),randColor(), randColor()], score: this.state.score+1 })
+  }
+  if(hex.innerText !== value){
+  this.setState({colors:  [randColor(),randColor(), randColor()], score: this.state.score-1  })
+}
     console.log(this.state)
 
 
@@ -142,8 +154,8 @@ class Main extends React.Component{
 
     return (
       <div onMouseMove={this.mouseMove} className="body">
-      <div className='hex'>{this.state.colors[Math.floor(Math.random()*3)]}</div>
-      <div className='score'>{this.state.score}</div>
+      <div className='hex' id='hex'>{this.state.colors[Math.floor(Math.random()*3)]}</div>
+      <div className='score'>Score: {this.state.score}</div>
       <div className='timer'>{}</div>
       <Canvas style={{ background: '#FFFFF' }}  >
 
