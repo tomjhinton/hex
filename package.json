@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "serve": "webpack-dev-server --mode=development",
-  "build": "webpack -p",
-  "deploy": "yarn build && gh-pages -d dist"
-},
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack-dev-server --mode=development",
+    "build": "webpack -p",
+    "deploy": "yarn build && gh-pages -d dist"
+  },
   "repository": "git@github.com:tomjhinton/hex.git",
   "author": "Tom Hinton <tomjhinton@gmail.com>",
   "license": "MIT",
@@ -19,6 +19,7 @@
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
     "file-loader": "^5.0.2",
+    "gh-pages": "^2.2.0",
     "glsl-noise": "^0.0.0",
     "glsl-shader-loader": "^0.1.6",
     "glslify": "^7.0.0",
