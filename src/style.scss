@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Pasio";
+  src: url("assets/Passio-Graphis.otf") format("opentype");
+}
+*{
+  font-family: 'Pasio';
+  font-size: 5vh;
+  background-size:contain;
+  background-repeat: no-repeat;
+  color: black;
+
+}
+
+.hex{
+  position: relative;
+  z-index: 1;
+}
+
+.score{
+  position: relative;
+  z-index: 1;
+}
