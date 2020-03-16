@@ -9,6 +9,7 @@
   background-repeat: no-repeat;
   color: black;
   cursor: pointer;
+  touch-action: none;
 
 }
 
@@ -24,4 +25,8 @@
   margin-left: 40%;
   position: absolute;
   z-index: 1;
+}
+Canvas{
+  cursor: pointer;
+  touch-action: none;
 }
