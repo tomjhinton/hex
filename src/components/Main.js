@@ -85,7 +85,7 @@ function Box3(props) {
       scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
       onClick={e =>{
       // setHover(false)
-
+      console.log(e)
       props.passState(mesh3.current.color)
     }}
       onPointerOut={e => setHover(false)}>
