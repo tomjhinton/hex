@@ -131,6 +131,7 @@ class Main extends React.Component{
   }
 
   passState(value){
+    
     console.log(value)
     const hex = document.getElementById('hex')
     console.log(hex.innerText)
