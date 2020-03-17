@@ -8,8 +8,8 @@
   background-size:contain;
   background-repeat: no-repeat;
   color: black;
-  cursor: pointer;
-  touch-action: none;
+  // cursor: pointer;
+
 
 }
 
@@ -29,4 +29,8 @@
 Canvas{
   cursor: pointer;
   // touch-action: none;
+}
+
+Box1{
+  cursor: pointer;
 }
