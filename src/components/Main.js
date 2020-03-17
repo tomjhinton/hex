@@ -90,9 +90,14 @@ function Box3(props) {
     }}
       onPointerDown={e =>{
       // setHover(false)
-      console.log(e)
+      console.log("down")
       props.passState(mesh3.current.color)
-    }}>
+    }}
+    onPointerUp={e =>{
+    // setHover(false)
+    console.log('up')
+    props.passState(mesh3.current.color)
+  }}>
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <meshStandardMaterial attach="material" color={props.color} />
     </mesh>
