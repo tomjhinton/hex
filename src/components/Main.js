@@ -88,16 +88,17 @@ function Box3(props) {
       console.log(e)
       props.passState(mesh3.current.color)
     }}
-      onPointerDown={e =>{
-      // setHover(false)
-      console.log("down")
-      props.passState(mesh3.current.color)
-    }}
-    onPointerUp={e =>{
-    // setHover(false)
-    console.log('up')
-    props.passState(mesh3.current.color)
-  }}>
+  //     onPointerDown={e =>{
+  //     // setHover(false)
+  //     console.log("down")
+  //     props.passState(mesh3.current.color)
+  //   }}
+  //   onPointerUp={e =>{
+  //   // setHover(false)
+  //   console.log('up')
+  //   props.passState(mesh3.current.color)
+  // }}
+    >
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <meshStandardMaterial attach="material" color={props.color} />
     </mesh>
@@ -145,11 +146,11 @@ class Main extends React.Component{
     const hex = document.getElementById('hex')
     console.log(hex.innerText)
     if(hex.innerText === value){
-    this.setState({colors:  [randColor(),randColor(), randColor()], score: this.state.score+1 })
-  }
-  if(hex.innerText !== value){
-  this.setState({colors:  [randColor(),randColor(), randColor()], score: this.state.score-1  })
-}
+      this.setState({colors: [randColor(),randColor(), randColor()], score: this.state.score+1 })
+    }
+    if(hex.innerText !== value){
+      this.setState({colors: [randColor(),randColor(), randColor()], score: this.state.score-1  })
+    }
     console.log(this.state)
 
 
