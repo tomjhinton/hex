@@ -88,7 +88,11 @@ function Box3(props) {
       console.log(e)
       props.passState(mesh3.current.color)
     }}
-      onPointerOut={e => setHover(false)}>
+      onPointerDown={e =>{
+      // setHover(false)
+      console.log(e)
+      props.passState(mesh3.current.color)
+    }}>
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <meshStandardMaterial attach="material" color={props.color} />
     </mesh>
@@ -131,7 +135,7 @@ class Main extends React.Component{
   }
 
   passState(value){
-    
+
     console.log(value)
     const hex = document.getElementById('hex')
     console.log(hex.innerText)
